@@ -1,0 +1,28 @@
+Write an SQL query to report all customers who never order anything.
+
+Return the result table in any order.
+
+
+Another Approach
+
+SELECT C.name AS Customers
+FROM Customers C
+WHERE C.id NOT IN (
+SELECT c.id
+FROM Customers c
+INNER JOIN Orders o
+ON c.id=o.customerId);
+
+
+
+
+
+
+
+
+One Way
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id=o.CustomerId
+WHERE o.customerId IS NULL;
