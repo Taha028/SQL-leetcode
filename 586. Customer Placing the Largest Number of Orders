@@ -1,0 +1,13 @@
+# Write your MySQL query statement below
+with cte as
+(
+select*,count(order_number) over (partition by customer_number) as count_of_order from orders
+)
+
+,cte2 as
+(
+select*, dense_rank() over(order by count_of_order desc) as rank_of_orders from cte
+)
+
+select customer_number from cte2 where rank_of_orders=1
+limit 1
