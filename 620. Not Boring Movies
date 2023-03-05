@@ -1,0 +1,4 @@
+SELECT c.id id,c.movie movie,c.description description,c.rating rating
+FROM cinema c
+WHERE c.id%2!=0 and c.description!='boring'
+ORDER BY rating DESC;
