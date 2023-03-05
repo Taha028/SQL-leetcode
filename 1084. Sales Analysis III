@@ -1,0 +1,6 @@
+FROM Product P1
+WHERE P1.product_id NOT IN (
+    SELECT S1.product_id
+    FROM Sales S1
+    WHERE S1.sale_date NOT BETWEEN  '2019-01-01' AND '2019-03-31'
+)
