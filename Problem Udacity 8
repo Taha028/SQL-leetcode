@@ -1,0 +1,11 @@
+Which account used facebook most as a channel?
+
+SELECT a.id, COUNT(we.channel) AS chh
+FROM accounts a 
+JOIN web_events we
+ON a.id = we.account_id
+WHERE we.channel ='facebook'
+GROUP BY we.channel,a.id
+ORDER BY 2 DESC
+LIMIT 1;
+
