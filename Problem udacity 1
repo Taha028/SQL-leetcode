@@ -1,0 +1,9 @@
+Which account has the most orders?
+
+SELECT COUNT(o.id)
+FROM orders o
+JOIN accounts a
+ON a.id = o.account_id
+GROUP BY a.id
+ORDER BY 1 DESC
+LIMIT 1;
