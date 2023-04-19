@@ -1,0 +1,8 @@
+How many accounts have more than 20 orders?
+
+SELECT a.name AS account_name
+FROM orders o
+JOIN accounts a 
+ON a.id = o.account_id
+GROUP BY a.id,a.name
+HAVING COUNT(a.id) > 20
