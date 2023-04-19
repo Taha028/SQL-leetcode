@@ -1,0 +1,11 @@
+Which accounts used facebook as a channel to contact customers more than 6 times?
+
+
+SELECT a.id, COUNT(we.channel) AS chh
+FROM accounts a 
+JOIN web_events we
+ON a.id = we.account_id
+WHERE we.channel ='facebook'
+GROUP BY we.channel,a.id
+HAVING COUNT(we.channel) > 6
+
