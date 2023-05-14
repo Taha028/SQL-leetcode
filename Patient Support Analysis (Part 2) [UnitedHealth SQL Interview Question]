@@ -1,0 +1,2 @@
+SELECT ROUND((SUM(CASE WHEN c.call_category IS NULL OR c.call_category = 'n/a' OR c.call_category = '' THEN 1 ELSE 0 END) * 100.0) / COUNT(*), 1) AS uncategorised_calls
+FROM callers c;
