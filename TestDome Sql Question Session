@@ -1,0 +1,5 @@
+-- Write only the SQL statement that solves the problem and nothing else
+SELECT s.userId,AVG(s.duration)
+FROM sessions s
+GROUP BY s.userId
+HAVING COUNT(s.userId)>1;
